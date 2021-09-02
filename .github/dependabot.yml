@@ -1,7 +1,16 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "/python/*/"
+    directory: "/python/3.7/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+  - package-ecosystem: "docker"
+    directory: "/python/3.8/"
     schedule:
       interval: "daily"
     labels:
